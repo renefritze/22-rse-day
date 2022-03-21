@@ -9,13 +9,13 @@ revealOptions:
 
 #  Automate More - Remember Less
 
-<small>René Fritze</small>  
-<small>rene.fritze@wwu.de</small>  
-<small>Mathematics Münster</small>  
-  
+<small>René Fritze</small>
+<small>rene.fritze@wwu.de</small>
+<small>Mathematics Münster</small>
+
 <small>March 23, 2022</small>
-  
-<small>**</small>  
+
+<small>**</small>
 
 ---
 
@@ -39,7 +39,7 @@ revealOptions:
 
 ---
 
-# 
+#
   - launch scripts
 
 ---
@@ -47,15 +47,18 @@ revealOptions:
 # pre-commit
 
 ## Available hooks:
-  - formatter
-    black, prettier
+  - formatter: black, prettier
   - large files
-  - credentials
+  - credentials check
   - linting
   - MORE
 
+---
+
+# pre-commit
+
 ## Write your own hook
-  
+
 ---
 
 # Makefiles
@@ -71,5 +74,5 @@ revealOptions:
 ---
 
 # project template sanity
-if your project configuration from tempalte
-  
+
+if your project configuration from template
