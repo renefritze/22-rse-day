@@ -19,41 +19,57 @@ revealOptions:
 
 ---
 
-# Outline
+# Why automate tasks
 
-1. Introduction
-2. Methods
-3. Results
-4. Discussion
-5. Conclusion
-6. References
+1. So I cannot forget (how) to run the task
+2. Increase reliability
+3. Save myself time
 
 ---
 
-# Introduction
+# Caveats I
 
-
-```python
-
-form os import *
-```
+![](automation.png)
 
 ---
 
-## Methods
+# Caveats II
+
+![](is_it_worth_the_time.png)
 
 ---
 
-## Results
+# 
+  - launch scripts
 
 ---
 
-## Discussion
+# pre-commit
+
+## Available hooks:
+  - formatter
+    black, prettier
+  - large files
+  - credentials
+  - linting
+  - MORE
+
+## Write your own hook
+  
+---
+
+# Makefiles
 
 ---
 
-## Conclusion
+# CI
+
+## Gitlab CI
+
+## Github Actions
 
 ---
 
-## References
+# project template sanity
+if your project configuration from tempalte
+  
