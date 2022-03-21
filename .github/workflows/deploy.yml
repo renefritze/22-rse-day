@@ -6,7 +6,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    name: Find merge conflicts
+    name: build and upload
     steps:
       # Checkout the source code so we have some files to look at.
       - uses: actions/checkout@v3
@@ -19,4 +19,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./docs/

@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+docs/css
+docs/index.html
+docs/js
+docs/lib
+docs/plugin
