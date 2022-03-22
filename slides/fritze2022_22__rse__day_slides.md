@@ -32,25 +32,25 @@ revealOptions:
 
 ---
 
-## Why automate tasks
+### Why automate tasks
 
 1. So I cannot forget (how) to run the task
 
 ---
 
-## Why automate tasks
+### Why automate tasks
 
 2. Increase reliability
 
 ---
 
-## Why automate tasks
+### Why automate tasks
 
 3. Save myself time
 
 ---
 
-## Why automate tasks
+### Why automate tasks
 
 4. It's fun
 
@@ -78,31 +78,31 @@ General framework for git [pre-commit](https://pre-commit.com/) hooks.
 
 ---
 
-## Available hooks
+### Available hooks
 
 - formatter: black, prettier, clang-format
 
 ---
 
-## Available hooks
+### Available hooks
 
 - detect: large files, leaked credentials, broken symlinks
 
 ---
 
-## Available hooks
+### Available hooks
 
 - fixes: trailing whitespace, file encondings
 
 ---
 
-## Available hooks
+### Available hooks
 
 - linting
 
 ---
 
-## Available hooks
+### Available hooks
 
 - [many, MANY more](https://pre-commit.com/hooks.html)
 
@@ -147,14 +147,14 @@ Lots of supported languages. Needs a repo with [metadata file](https://github.co
 
 ---
 
-## Makefiles are good for
+### Makefiles are good for
 
 - repeatably executing scripts
 - managing dependencies between steps
 
 ---
 
-## Makefiles are good for
+### Makefiles are good for
 
 - expressing workflows
 - running things in parallel
@@ -189,14 +189,14 @@ docs/index.html: slides/fritze2022_22__rse__day_slides.md
 
 ---
 
-## Why I use Makefiles
+### Why I use Makefiles
 
 - `make` is available everywhere
 - it scales well from trivial to complex <https://github.com/pymor/docker/blob/main/Makefile>
 
 ---
 
-## Real life examples
+### Real life examples
 
 - [container build system](https://github.com/pymor/docker/blob/main/Makefile)
 - [project setup](https://gist.githubusercontent.com/renefritze/425c4d02d315f246ba58ea3a0c6432e2/raw/ef752f59af47a048634e803ca7ccbd2e10a8b4f5/Makefile)
@@ -211,7 +211,7 @@ Make script accept config file or cli args input
 
 ---
 
-## Benefits
+### Benefits
 
 1. Parameter studies in parallel
 2. increases Reproducibility
@@ -225,13 +225,13 @@ Make script accept config file or cli args input
 
 ---
 
-## What is CI/CD?
+### What is CI/CD?
 
 Service to automatically run workflow on your source.
 
 ---
 
-## Platforms
+### Platforms
 
 1. Gitlab CI
 2. Github Actions
@@ -241,7 +241,7 @@ Service to automatically run workflow on your source.
 
 ---
 
-## Examples
+### Examples
 
 - Make sure code style is followed
 - Run your test suite on every git push for multiple configurations, [prevent merging with failures](https://github.com/WWU-AMM/pytimings/settings/branch_protection_rules/19373418)
@@ -251,7 +251,7 @@ Service to automatically run workflow on your source.
 
 ---
 
-## Gitlab CI
+### Gitlab CI
 
 - Simpler to use with custom docker images
 - Possible to run service containers
@@ -259,11 +259,11 @@ Service to automatically run workflow on your source.
 
 ---
 
-## Github Actions
+### Github Actions
 
-- Huge number of pre-configured steps (Actions)
-- Dependabot
-- Pages infrastructure easier with custom domains
+- [Huge number](https://github.com/marketplace?type=actions) of pre-configured steps (Actions)
+- [Dependabot](https://github.com/renefritze/pymor/pull/74)
+- Pages easier with custom domains
 
 ----
 
@@ -271,7 +271,7 @@ Service to automatically run workflow on your source.
 
 ---
 
-## Example
+### Example
 
 <pre class="python"><code data-trim data-noescape>
 import jinja2
@@ -291,7 +291,9 @@ print(tpl.render(pythons=['3.9', '3.10']))
 2. 3.10
 </code></pre>
 
-## Use cases
+---
+
+### Use cases
 
 - Parameter Studies
 - [Code generation](https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-xt/-/raw/master/python/scripts/generate_compare_functions.py)
@@ -300,7 +302,9 @@ print(tpl.render(pythons=['3.9', '3.10']))
 
 ---
 
-## CI Sanity
+### CI Sanity
+
+Always be sure you've commited resulting changes.
 
 <pre class="bash"><code data-trim data-noescape>
 ./generate.py output_file
@@ -315,11 +319,49 @@ Generate entire projects from a [template](https://github.com/renefritze/cookiec
 
 ----
 
-# Automatic bug finding
+# Versioning
 
 ---
 
-## Prelim
+## Version info from git
+
+<pre class="bash"><code data-trim data-noescape>
+$ git describe --tags --dirty
+2021.2.0-256-g2692a0e30
+</code></pre>
+
+Python + CMake based projects: [versioneer](https://github.com/python-versioneer/python-versioneer)
+
+----
+
+# Releases
+
+---
+
+### Strategy
+
+1. Determine git-hash that will become the release point
+2. git tag it and push the tag
+3. Usual CI runs for the commit+tag
+4. Have extra steps at the end
+
+---
+
+## 4. Extra steps
+
+- [upload](https://raw.githubusercontent.com/WWU-AMM/pytimings/main/.github/workflows/deploy.yml) to your
+package repository
+- Release announcements (Email, Twitter)
+
+----
+
+# Automate bug finding
+
+---
+
+## git bisect run
+
+[Tutorial](https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git)
 
 ----
 
