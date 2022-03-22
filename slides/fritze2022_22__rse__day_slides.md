@@ -20,6 +20,7 @@ revealOptions:
 
 # This talk
 
+![](qrcode.png)
 ----
 
 # Why automate tasks
