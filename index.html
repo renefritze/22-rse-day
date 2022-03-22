@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./dist/reset.css" />
     <link rel="stylesheet" href="./dist/reveal.css" />
-    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/zenburn.css" />
     <link rel="stylesheet" href="./edit/style.css">
 
@@ -20,60 +20,184 @@
 
 #  Automate More - Remember Less
 
-<small>René Fritze</small>
-<small>rene.fritze@wwu.de</small>
-<small>Mathematics Münster</small>
+[René Fritze](mailto:rene.fritze@wwu.de)
 
-<small>March 23, 2022</small>
+<small>Research Software Engineering Day 2022</small>
 
-<small>**</small>
+<small>March 23th, 2022</small>
 </script></section><section  data-markdown><script type="text/template">
+
+# This talk
+
+</script></section><section ><section data-markdown><script type="text/template">
+
 # Why automate tasks
 
+</script></section><section data-markdown><script type="text/template">
+
+## Why automate tasks
+
 1. So I cannot forget (how) to run the task
+
+</script></section><section data-markdown><script type="text/template">
+
+## Why automate tasks
+
 2. Increase reliability
+
+</script></section><section data-markdown><script type="text/template">
+
+## Why automate tasks
+
 3. Save myself time
-</script></section><section  data-markdown><script type="text/template">
-# Caveats I
+
+</script></section><section data-markdown><script type="text/template">
+
+## Why automate tasks
+
+4. It's fun
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+# Caveats
+
+</script></section><section data-markdown><script type="text/template">
 
 ![](automation.png)
-</script></section><section  data-markdown><script type="text/template">
-# Caveats II
+
+[source](https://xkcd.com/1319/)
+
+</script></section><section data-markdown><script type="text/template">
 
 ![](is_it_worth_the_time.png)
-</script></section><section  data-markdown><script type="text/template">
-#
-  - launch scripts
-</script></section><section  data-markdown><script type="text/template">
+
+[source](https://xkcd.com/1205/)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
 # pre-commit
 
-## Available hooks:
-  - formatter: black, prettier
-  - large files
-  - credentials check
-  - linting
-  - MORE
-</script></section><section  data-markdown><script type="text/template">
-# pre-commit
+General framework for git [pre-commit](https://pre-commit.com/) hooks.
 
+</script></section><section data-markdown><script type="text/template">
+
+## Available hooks
+
+- formatter: black, prettier, clang-format
+
+</script></section><section data-markdown><script type="text/template">
+
+## Available hooks
+
+- detect: large files, leaked credentials, broken symlinks
+
+</script></section><section data-markdown><script type="text/template">
+
+## Available hooks
+
+- fixes: trailing whitespace, file encondings
+
+</script></section><section data-markdown><script type="text/template">
+
+## Available hooks
+
+- linting
+
+</script></section><section data-markdown><script type="text/template">
+
+## Available hooks
+
+- [many, MANY more](https://pre-commit.com/hooks.html)
+
+</script></section><section data-markdown><script type="text/template">
+
+## Real-world example
+
+<pre><code data-trim data-noescape>
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-executables-have-shebangs
+    -   id: check-case-conflict
+    -   id: check-symlinks
+</code></pre>
+  
+</script></section><section data-markdown><script type="text/template">
 ## Write your own hook
-</script></section><section  data-markdown><script type="text/template">
+
+Lots of supported languages. Needs a repo with [metadata file](https://github.com/pre-commit/mirrors-clang-format/blob/master/.pre-commit-hooks.yaml) and optionally executable script.
+
+[Docs](https://pre-commit.com/index.html#new-hooks)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
 # Makefiles
-</script></section><section  data-markdown><script type="text/template">
+
+[History](https://en.wikipedia.org/wiki/Make_(software))
+
+</script></section><section data-markdown><script type="text/template">
+
+## Makefiles are good for
+
+- repeatably executing scripts
+
+</script></section><section data-markdown><script type="text/template">
+
+## Makefiles are good for
+
+- expressing complex workflows
+- managing dependencies between steps
+
+</script></section><section data-markdown><script type="text/template">
+
+## Rule example
+
+<pre><code data-trim data-noescape>
+html:
+    node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
+</code></pre>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Working Rule example
+
+<pre><code data-trim data-noescape>
+.PHONY: html
+html:
+    node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
+</code></pre>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Better Rule example
+
+<pre><code data-trim data-noescape>
+.PHONY: html
+html:
+    node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
+</code></pre>
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
 # CI
 
+</script></section><section data-markdown><script type="text/template">
 ## Gitlab CI
-
+</script></section><section data-markdown><script type="text/template">
 ## Github Actions
-</script></section><section  data-markdown><script type="text/template">
+
+</script></section></section><section  data-markdown><script type="text/template">
+
 # project template sanity
 
 if your project configuration from template
 </script></section></div>
     </div>
-        <div id="logo-div">
-          <img src="./edit/logo.png" class="logo">
-        </div>
 
     <script src="./dist/reveal.js"></script>
 
@@ -115,7 +239,7 @@ if your project configuration from template
       // options from URL query string
             var queryOptions = Reveal().getQueryHash() || {};
 
-            var options = extend(defaultOptions, {"transition":"slide","controls":true,"slideNumber":true}, queryOptions);
+            var options = extend(defaultOptions, {"transition":"none","controls":true,"slideNumber":false}, queryOptions);
         </script>
 
 
