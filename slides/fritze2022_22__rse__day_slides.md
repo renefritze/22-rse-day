@@ -110,7 +110,9 @@ General framework for git [pre-commit](https://pre-commit.com/) hooks.
 
 ## Real-world example
 
-<pre><code data-trim data-noescape>
+[.pre-commit-config.yaml](https://github.com/renefritze/22-rse-day/blob/main/.pre-commit-config.yaml)
+
+<pre class="yaml"><code data-trim data-noescape>
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -123,7 +125,12 @@ repos:
     -   id: check-case-conflict
     -   id: check-symlinks
 </code></pre>
-  
+
+<pre class="bash"><code data-trim data-noescape>
+python3 -m pip install pre-commit
+pre-commit run -a
+</code></pre>
+
 ---
 
 ## Write your own hook
@@ -287,7 +294,7 @@ print(tpl.render(pythons=['3.9', '3.10']))
 ## Use cases
 
 - Parameter Studies
-- Code generation
+- [Code generation](https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-xt/-/raw/master/python/scripts/generate_compare_functions.py)
 - [Composable Dockerfiles](https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/docker/-/raw/main/debian/python_dbg/Dockerfile.in)
 - [Cookiecutters](https://cookiecutter.readthedocs.io/en/2.0.2/)
 
@@ -305,6 +312,14 @@ git diff --exit-code output_file
 ## Cookiecutters
 
 Generate entire projects from a [template](https://github.com/renefritze/cookiecutter-reveal).
+
+----
+
+# Automatic bug finding
+
+---
+
+## Prelim
 
 ----
 
