@@ -1,5 +1,5 @@
 {
-  "name": "22__RSE__DAY",
+  "name": "22-rse-day",
   "version": "0.0.0",
   "description": "template_description",
   "main": "",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/renefritze/22__RSE__DAY.git"
+    "url": "git+https://github.com/renefritze/22-rse-day.git"
   },
   "author": "René Fritze",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/renefritze/22__RSE__DAY/issues"
+    "url": "https://github.com/renefritze/22-rse-day/issues"
   },
-  "homepage": "https://github.com/renefritze/22__RSE__DAY#readme",
+  "homepage": "https://github.com/renefritze/22-rse-day#readme",
   "dependencies": {
     "reveal-md": "^0.5.0"
   },

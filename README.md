@@ -1,16 +1,16 @@
-# 22__RSE__DAY
+# 22-rse-day
 
 René Fritze  
 rene.fritze@wwu.de  
 
-* [Slides](https://renefritze.github.io/22__RSE__DAY)
-* [PDF](https://github.com/renefritze/22__RSE__DAY/blob/master/slides/fritze2022_22__rse__day_slides.pdf)
+* [Slides](https://renefritze.github.io/22-rse-day)
+* [PDF](https://github.com/renefritze/22-rse-day/blob/master/slides/fritze2022_22__rse__day_slides.pdf)
 
 template_description.
 
-[![Build Status](https://travis-ci.org/renefritze/22__RSE__DAY.svg?branch=master)](https://travis-ci.org/renefritze/22__RSE__DAY)
-[![GitHub license](https://img.shields.io/github/license/renefritze/22__RSE__DAY.svg)](https://github.com/renefritze/22__RSE__DAY/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/renefritze/22__RSE__DAY.svg?style=social)](https://twitter.com/intent/tweet?text=template_description:%20https%3A%2F%2Fgithub.com%2Frenefritze%2F22__RSE__DAY%20%23revealjs%20%23slides)
+[![Build Status](https://travis-ci.org/renefritze/22-rse-day.svg?branch=master)](https://travis-ci.org/renefritze/22-rse-day)
+[![GitHub license](https://img.shields.io/github/license/renefritze/22-rse-day.svg)](https://github.com/renefritze/22-rse-day/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/renefritze/22-rse-day.svg?style=social)](https://twitter.com/intent/tweet?text=template_description:%20https%3A%2F%2Fgithub.com%2Frenefritze%2F22-rse-day%20%23revealjs%20%23slides)
 
 ## Install
 
@@ -19,8 +19,8 @@ template_description.
 3. Install dependencies with `npm`
 
 ```
-git clone https://github.com/renefritze/22__RSE__DAY
-cd 22__RSE__DAY
+git clone https://github.com/renefritze/22-rse-day
+cd 22-rse-day
 npm install
 ```
 
@@ -28,8 +28,8 @@ See [Edits](#edits) and [Implementation](#implementation) for more details.
 
 ## Usage
 
-1. Generate `docs/index.html` (see `script.html` in [package.json](https://github.com/renefritze/22__RSE__DAY/blob/master/package.json))
-2. Generate `slides/fritze2022_22__rse__day_slides.pdf` (see `script.pdf` in [package.json](https://github.com/renefritze/22__RSE__DAY/blob/master/package.json))
+1. Generate `docs/index.html` (see `script.html` in [package.json](https://github.com/renefritze/22-rse-day/blob/master/package.json))
+2. Generate `slides/fritze2022_22__rse__day_slides.pdf` (see `script.pdf` in [package.json](https://github.com/renefritze/22-rse-day/blob/master/package.json))
 
 ```
 npm run html
@@ -50,7 +50,7 @@ The following can be edited before generating:
 ### Implementation
 
 
-The slides [22__RSE__DAY](https://github.com/renefritze/22__RSE__DAY) uses the following [npm](https://www.npmjs.com/) packages for its implementation:
+The slides [22-rse-day](https://github.com/renefritze/22-rse-day) uses the following [npm](https://www.npmjs.com/) packages for its implementation:
 
 npm | Purpose
 --- | ---
