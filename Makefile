@@ -12,3 +12,5 @@ html: docs/index.html
 
 pdf: slides/fritze2022_22__rse__day_slides.pdf
 	
+watch:
+	npm run watch

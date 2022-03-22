@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "html": "node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs --template slides/template.html",
-    "pdf": "node ./node_modules/decktape/decktape.js -s 1920x1080 reveal docs/index.html slides/fritze2022_22__rse__day_slides.pdf"
+    "pdf": "node ./node_modules/decktape/decktape.js -s 1920x1080 reveal docs/index.html slides/fritze2022_22__rse__day_slides.pdf",
+    "watch": "./node_modules/.bin/reveal-md slides/fritze2022_22__rse__day_slides.md --watch --template slides/template.html"
   },
   "directories": {
     "test": "tests"
