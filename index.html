@@ -27,9 +27,14 @@
 <small>March 23th, 2022</small>
 </script></section><section  data-markdown><script type="text/template">
 
-# This talk
+# About Me
 
-![](qrcode.png)
+- [pyMOR](https://pymor.org)
+- [MaRDI4NFDI](https://www.mardi4nfdi.de/about/mission)
+- [dune-gdt](https://docs.dune-gdt.org/main/index.html)
+- [github](https://github.com/renefritze/)
+- [WWU](https://www.uni-muenster.de/AMM/en/ohlberger/team/rene_fritze.shtml)
+
 </script></section><section ><section data-markdown><script type="text/template">
 
 # Why automate tasks
@@ -129,6 +134,7 @@ repos:
 </code></pre>
   
 </script></section><section data-markdown><script type="text/template">
+
 ## Write your own hook
 
 Lots of supported languages. Needs a repo with [metadata file](https://github.com/pre-commit/mirrors-clang-format/blob/master/.pre-commit-hooks.yaml) and optionally executable script.
@@ -146,19 +152,20 @@ Lots of supported languages. Needs a repo with [metadata file](https://github.co
 ## Makefiles are good for
 
 - repeatably executing scripts
+- managing dependencies between steps
 
 </script></section><section data-markdown><script type="text/template">
 
 ## Makefiles are good for
 
-- expressing complex workflows
-- managing dependencies between steps
+- expressing workflows
+- running things in parallel
 
 </script></section><section data-markdown><script type="text/template">
 
 ## Rule example
 
-<pre><code data-trim data-noescape>
+<pre class="makefile"><code data-trim data-noescape>
 html:
     node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
 </code></pre>
@@ -167,7 +174,7 @@ html:
 
 ## Working Rule example
 
-<pre><code data-trim data-noescape>
+<pre class="makefile"><code data-trim data-noescape>
 .PHONY: html
 html:
     node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
@@ -177,26 +184,142 @@ html:
 
 ## Better Rule example
 
-<pre><code data-trim data-noescape>
-.PHONY: html
-html:
-    node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs \--template slides/template.html
+<pre class="makefile"><code data-trim data-noescape>
+docs/index.html: slides/fritze2022_22__rse__day_slides.md
+    node ./node_modules/reveal-md/bin/reveal-md.js slides/fritze2022_22__rse__day_slides.md --static docs --template slides/template.html
 </code></pre>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Why I use Makefiles
+
+- `make` is available everywhere
+- it scales well from trivial to complex <https://github.com/pymor/docker/blob/main/Makefile>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Real life examples
+
+- [container build system](https://github.com/pymor/docker/blob/main/Makefile)
+- [project setup](https://gist.githubusercontent.com/renefritze/425c4d02d315f246ba58ea3a0c6432e2/raw/ef752f59af47a048634e803ca7ccbd2e10a8b4f5/Makefile)
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 
-# CI
+# Aside: Program Input
+
+~~Edit script for different parameters~~
+
+Make script accept config file or cli args input
 
 </script></section><section data-markdown><script type="text/template">
-## Gitlab CI
+
+## Benefits
+
+1. Parameter studies in parallel
+2. increases Reproducibility
+3. Clean history
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+# Continuous Integration / Distribution
+
+(CI/CD)
+
 </script></section><section data-markdown><script type="text/template">
+
+## What is CI/CD?
+
+Service to automatically run workflow on your source.
+
+</script></section><section data-markdown><script type="text/template">
+
+## Platforms
+
+1. Gitlab CI
+2. Github Actions
+3. Azure Pipelines
+4. Circle CI
+5. A dozen more
+
+</script></section><section data-markdown><script type="text/template">
+
+## Examples
+
+- Make sure code style is followed
+- Run your test suite on every git push for multiple configurations, [prevent merging with failures](https://github.com/WWU-AMM/pytimings/settings/branch_protection_rules/19373418)
+- Build and distribute your documentation for git tags
+- [Complex example](https://zivgitlab.uni-muenster.de/pymor/pymor/-/pipelines/134461)
+- Trigger other workflows
+
+</script></section><section data-markdown><script type="text/template">
+
+## Gitlab CI
+
+- Simpler to use with custom docker images
+- Possible to run service containers
+- Pages infrastructure with authentication
+
+</script></section><section data-markdown><script type="text/template">
+
 ## Github Actions
+
+- Huge number of pre-configured steps (Actions)
+- Dependabot
+- Pages infrastructure easier with custom domains
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+# Templating
+
+</script></section><section data-markdown><script type="text/template">
+
+## Example
+
+<pre class="python"><code data-trim data-noescape>
+import jinja2
+template_string = """
+# My Project is available for
+{%- for py in python %}
+{{loop.index}}. {{py}}
+{%- endfor -%}
+"""
+tpl = jinja2.Template(template_string)
+print(tpl.render(pythons=['3.9', '3.10']))
+</code></pre>
+
+<pre class="markdown"><code data-trim data-noescape>
+# My Project is available for
+1. 3.9
+2. 3.10
+</code></pre>
+
+## Use cases
+
+- Parameter Studies
+- Code generation
+- [Composable Dockerfiles](https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/docker/-/raw/main/debian/python_dbg/Dockerfile.in)
+- [Cookiecutters](https://cookiecutter.readthedocs.io/en/2.0.2/)
+
+</script></section><section data-markdown><script type="text/template">
+
+## CI Sanity
+
+<pre class="bash"><code data-trim data-noescape>
+./generate.py output_file
+git diff --exit-code output_file
+</code></pre>
+
+</script></section><section data-markdown><script type="text/template">
+
+## Cookiecutters
+
+Generate entire projects from a [template](https://github.com/renefritze/cookiecutter-reveal).
 
 </script></section></section><section  data-markdown><script type="text/template">
 
-# project template sanity
+# The end
 
-if your project configuration from template
+![](qrcode.png)
 </script></section></div>
     </div>
 
