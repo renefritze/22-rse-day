@@ -84,6 +84,25 @@ General framework for git [pre-commit](https://pre-commit.com/) hooks.
 
 ---
 
+### black example
+
+<pre class="python"><code data-noescape>
+foo =    ('bar'
+    +
+                    'baz'
+        )
+</code></pre>
+
+---
+
+### black example
+
+<pre class="python"><code data-noescape>
+foo = "bar" + "baz"
+</code></pre>
+
+---
+
 ### Available hooks
 
 - detect: large files, leaked credentials, broken symlinks
@@ -367,4 +386,4 @@ package repository
 
 # The end
 
-![](qrcode.png)
+[![](qrcode.png)](https://github.com/renefritze/22-rse-day)
