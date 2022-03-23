@@ -211,7 +211,7 @@ docs/index.html: slides/fritze2022_22__rse__day_slides.md
 ### Why I use Makefiles
 
 - `make` is available everywhere
-- it scales well from trivial to complex <https://github.com/pymor/docker/blob/main/Makefile>
+- it scales well from trivial to complex
 
 ---
 
