@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/renefritze/22-rse-day#readme",
   "dependencies": {
-    "reveal-md": "^5.3.2",
+    "reveal-md": "^5.3.4",
     "decktape": "^3.4.1"
   }
 }
